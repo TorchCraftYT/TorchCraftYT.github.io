@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="https://i.ibb.co/pdtRF3v/Logo.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <base href="../">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Custom Firework</title>
+    <link rel="stylesheet" href="Base.css">
+    <!-- Script -->
+    <script>
+        const colors = [
+            [0,[1,1,1], [1,.5,0], [1,0,1], [0,1,1], [1,1,0], [0,1,0], [1,.7,.7], [.5,.5,.5], [.75,.75,.75], [0,.5,.5], [.5,0,.5], [0,0,1], [.5,.3,.1], [0,.5,0], [1,0,0], [0,0,0]],
+            [100,[.7,.7,.7],[.7,.5,0],[.7,0,.7],[0,.7,.7],[.7,.7,0],[0,.7,0],[.7,.5,.5],[.35,.35,.35],[.5,.5,.5],[0,.35,.35],[.35,0,.35],[0,0,.7],[.35,.21,.07],[0,.35,0],[.7,0,0],[0,0,0]],
+            [199,[.616,.302,.239],[.8,.7,.6],[.6,.3,.1],[.6,.3,.4],[.45,.4,.55],[.7,.5,.1],[.4,.45,.2],[.65,.3,.3],[.2,.17,.15],[.5,.4,.4],[.3,.35,.35],[.5,.3,.35],[.3,.2,.35],[.3,.2,.15],[.3,.3,.17],[.55,.2,.17],[.15,.1,.05]]
+        ]
+
+        function load(e) {              
+            const file = e.files[0];
+            const img = document.querySelector("#img");
+            const reader = new FileReader();
+            reader.onloadend = function() {
+                img.src = reader.result;
+            }
+            img.hidden = false;
+            reader.readAsDataURL(file);
+            changed();
+        }
+        function slider(e){
+            const id = e.id.slice(0, -2);
+            const idx = e.id.slice(-1);
+            document.querySelector(`#${id}-${idx^1}`).value = e.value;
+            changed();
+        }
+        function changed(){
+            setTimeout(()=>{updateCanvas();updateCanvas()},100)
+        }
+
+        function generate(){
+            const canvas = document.querySelector('#preview');
+            const tmp = document.querySelector('#canvas-tmp');
+            const tctx = tmp.getContext('2d');
+            const ctx = canvas.getContext('2d');
+            const out = document.querySelector('#command');
+
+            const flight = document.querySelector('#flight').value;
+            const rotation = document.querySelector('#rotation').value;
+            let data = []
+            ctx.clearRect(0,0,400,400);
+            for(let y = 0; y<20; y++){
+                for(let x = 19; x>=0; x--){
+                    const [r,g,b,a] = getPixel(tctx,x,y);
+                    const real = realColor([r,g,b])
+                    const [realR,realG,realB] = real.color;
+                    ctx.fillStyle = `rgba(${realR},${realG},${realB},${a==0? 0:1})`;
+                    ctx.fillRect(x*20,y*20,20,20);
+                    a==0? data.unshift(0) :data.unshift(real.id);
+                }
+            }
+            out.innerText = `/give @p minecraft:firework_rocket{data:[${data}],version:1,rotation:${rotation}f,Fireworks:{Flight:${flight}}} 64`
+        }
+
+        function realColor(color){
+            let lowest = Infinity;
+            let id = 0;
+            let c = [];
+            for (let i = 0; i < colors.length;i++){
+                for(let j = 1; j<colors[i].length;j++){
+                    let d = dis(color,colors[i][j].map(e=>{return e*255}));
+                    if(d<lowest) {
+                        lowest = d;
+                        id = j + colors[i][0];
+                        c = colors[i][j].map(e=>{return e*255});
+                    }
+                    
+                }
+            }
+            return {"color":c,"id":id}
+
+            function dis(c1,c2){
+                //console.log(c1,c2)
+                return Math.sqrt((c1[0]-c2[0])**2 + (c1[1]-c2[1])**2 + (c1[2]-c2[2])**2)
+            }
+        }
+        function updateCanvas(){
+            const canvas = document.querySelector('#canvas');
+            const tmp = document.querySelector('#canvas-tmp');
+            const image = new Image();
+            image.src = document.querySelector("#img").src;
+            const tctx = tmp.getContext('2d');
+            tctx.imageSmoothingEnabled =  document.querySelector('#smooth').selectedIndex-1;
+            const ctx = canvas.getContext('2d');
+
+            const crop = document.querySelector('#crop').selectedIndex;
+            console.log(crop)
+            const manual = document.querySelector('#manual')
+            if(crop == 2){
+                manual.removeAttribute("hidden");
+            } else {
+                manual.setAttribute("hidden", true);
+            }
+
+
+            //Draw
+            tctx.clearRect(0,0,20,20);
+            if (crop == 0){
+                tctx.drawImage(image,0,0,20,20);
+            } else if (crop == 1){
+                if(image.width>image.height){
+                    tctx.drawImage(image,10-10*image.width/image.height,0,20*image.width/image.height,20);
+                } else {
+                    tctx.drawImage(image,0,10-10*image.height/image.width,20,20*image.height/image.width);
+                }
+                
+            } else {
+                const zoom = Number(document.querySelector('#zoom-1').value);
+                const x = Number(document.querySelector('#x-1').value);
+                const y = Number(document.querySelector('#y-1').value);
+                const w = image.width>image.height? 20*image.width/image.height : 20;
+                const h = image.width>image.height? 20 : 20*image.height/image.width;
+                // tctx.drawImage(image,x,y,20*zoom,20*zoom);
+                tctx.save();
+                tctx.translate(10, 10)
+                tctx.drawImage(image,-10*zoom+w*zoom*x/50,-10*zoom+h*zoom*y/50,w*zoom,h*zoom);
+                tctx.restore();
+            }
+            
+            //Enlarge
+            ctx.clearRect(0,0,400,400);
+            for(let y = 0; y<20; y++){
+                for(let x = 0; x<20; x++){
+                    const [r,g,b,a] = getPixel(tctx,x,y);
+                    ctx.fillStyle = `rgba(${r},${g},${b},${a/255})`;
+                    ctx.fillRect(x*20,y*20,20,20);
+                    
+                }
+            }
+            
+            
+            //ctx.fillRect(x*20,y*20,20,20)
+        }
+        function getPixel(ctx,x,y){
+            return ctx.getImageData(x,y,1,1).data
+        }
+    </script>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/index.html">Home</a>
+        <a href="/Commands.html">Commands</a>
+        <a class="active" href="/Tools.html">Tools</a>
+        <a href="/About.html">About</a>
+    </div>
+    <div class="roundedDiv">
+        <p>This generator lets you import an image file and convert it into a custom firework in Minecraft. This custom firework can be rendered by using our "Custom Firework data pack", which you can find <a href="https://www.planetminecraft.com/data-pack/custom-firework-minecraft-1-19/" target="_blank">here</a>.</p>
+    </div>
+    <div class="roundedDiv">
+        <h2>Step 1: Import file</h2>
+        <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" onchange="load(this);"><br>
+        <img id="img" src="#" hidden/>
+    </div>
+    <div class="roundedDiv" style="padding-bottom: 400px;">
+        <h2>Step 2: Adjust image</h2>
+        <canvas width="400px" height="400px" id="canvas"></canvas>
+        <canvas width="20px" height="20px" id="canvas-tmp" hidden></canvas>
+        <div id="config">
+            <label for="crop">Crop:</label>
+            <select name="crop" id="crop" onchange="changed();">
+                <option value="off">Off</option>
+                <option value="center">Center</option>
+                <option value="manual">Manual</option>
+            </select><br>
+            <div id="manual" hidden>
+                <span>Zoom: </span><input type="range" min="0.5" max="5" value="1" id="zoom-0" step="0.1" onchange="slider(this)"><input onchange="slider(this)" type="number" min="0.5" max="5" value="1" id="zoom-1" step="0.1"><br>
+                <span>x: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><input type="range" min="-50" max="50" value="0" id="x-0" onchange="slider(this)"><input onchange="slider(this)" type="number" min="-50" max="50" value="0" id="x-1"><br>
+                <span>Y: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><input type="range" min="-50" max="50" value="0" id="y-0" onchange="slider(this)"><input onchange="slider(this)" type="number" min="-50" max="50" value="0" id="y-1"><br>
+            </div>
+            <label for="smooth">Smooth:</label>
+            <select name="smooth" id="smooth" onchange="changed();">
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+        </div>
+    </div>
+    <div class="roundedDiv" style="padding-bottom: 420px;">
+        <h2>Step 3: Preview & Generate</h2>
+        <canvas width="400px" height="400px" id="preview"></canvas>
+        <div id="generate">
+            <span>Flight: </span><input type="number" min="1" max="3" value="2" id="flight" step="1"><br>
+            <span>Rotation: </span><input type="number" min="-180" max="180" value="0" id="rotation" step="45"><br><br>
+            <button onclick="generate()" class="button-37">Generate</button><br>
+            
+            <textarea id="command" rows="4" cols="50" ></textarea>
+            <p style="position: absolute; width: 49%;">Note: The command is longer than 256 characters. Please give yourself a command block (/give @s command_block) in order to execute the command!</p>
+        </div>
+    </div>
+    
+    <!-- Style -->
+    <style>
+        body {
+            color:#030e12;
+            font-family: 'Bebas Neue', sans-serif;
+            padding: 0px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #fff;
+        }
+        .roundedDiv {
+            vertical-align: text-top;
+            margin: 3px auto;
+            padding: 5px;
+            width: 80%;
+            border: 5px outset #13aa52;
+            background-color: #fff;
+        }
+        #img{
+            max-width: 100px;
+        }
+        #canvas,#preview{
+            border: 2px solid gray;
+            float: left;
+        }
+        #config,#generate{
+            float:left;
+            margin-left: 30px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            font-size: 16px;
+        }
+        .button-37 {
+            background-color: #13aa52;
+            border: 1px solid #13aa52;
+            border-radius: 4px;
+            box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            outline: none;
+            outline: 0;
+            padding: 10px 25px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 150ms, box-shadow 150ms;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-37:hover {
+            box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+            transform: translateY(-2px);
+        }
+        input, select, option{
+            background-color: #fff;
+            border: 1px solid #13aa52;
+            border-radius: 4px;
+            box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+            box-sizing: border-box;
+        }
+    </style>
+</body>
+</html>

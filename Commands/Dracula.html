@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+
+    <link rel="shortcut icon" href="https://i.ibb.co/pdtRF3v/Logo.png" type="image/x-icon">
+    <title>Dracula command - TorchCraft</title>
+    <base href="../">
+    <link rel="stylesheet" href="Base.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="/index.html">Home</a>
+        <a class="active" href="/Commands.html">Commands</a>
+        <a href="/Tools.html">Tools</a>
+        <a href="/About.html">About</a>
+    </div>
+    <div class="command area">
+        <h1 style="text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Dracula command</h1>
+        <textarea id="command" rows="4" cols="50">summon minecraft:falling_block ~ ~1 ~ {BlockState:{Name:"redstone_block"},Time:1,Passengers:[{id:villager,Health:0,Passengers:[{id:falling_block,Time:1,BlockState:{Name:"activator_rail"},Passengers:[{id:command_block_minecart, Command: 'gamerule commandBlockOutput false'},{id:command_block_minecart, Command: '/fill ~1 ~-2 ~0 ~7 ~-2 ~4 minecraft:black_concrete'},{id:command_block_minecart, Command: '/fill ~1 ~1 ~0 ~7 ~1 ~4 minecraft:red_concrete'},{id:command_block_minecart, Command: '/fill ~1 ~0 ~0 ~7 ~-1 ~4 minecraft:black_stained_glass'},{id:command_block_minecart, Command: '/setblock ~0 ~1 ~2 minecraft:oak_wall_sign[facing=west,waterlogged=false]{Color:"black",GlowingText:0b,Text1:\'{"text":"DRACULA"}\',Text2:\'{"text":"--"}\',Text3:\'{"text":"Made by"}\',Text4:\'{"text":"TorchCraft"}\'}'},{id:command_block_minecart, Command: '/setblock ~0 ~0 ~2 minecraft:oak_wall_sign[facing=west,waterlogged=false]{Color:"black",GlowingText:0b,Text1:\'{"color":"dark_blue","clickEvent":{"action":"run_command","value":"give @s spider_spawn_egg{EntityTag:{id:armor_stand,Tags:[dracula-spawner]},display:{Name:\\\'[{\\\\"text\\\\":\\\\"Dracula Spawn Egg\\\\",\\\\"italic\\\\":false}]\\\'}} 1"},"text":"[GIVE EGG]"}\',Text2:\'{"text":""}\',Text3:\'{"text":""}\',Text4:\'{"text":""}\'}'},{id:command_block_minecart, Command: '/setblock ~0 ~-1 ~2 minecraft:oak_wall_sign[facing=west,waterlogged=false]{Color:"black",GlowingText:0b,Text1:\'{"color":"dark_red","clickEvent":{"action":"run_command","value":"fill ~ ~-1 ~-2 ~7 ~2 ~2 air"},"text":"[UNINSTALL]"}\',Text2:\'{"text":""}\',Text3:\'{"text":""}\',Text4:\'{"text":""}\'}'},{id:command_block_minecart, Command: '/setblock ~2 ~0 ~3 minecraft:chain_command_block[conditional=false,facing=east]{Command:"execute as @e[tag=dracula-toB] at @s run summon bat ~ ~ ~ {Tags:[dracula-bat,dracula-newB]}",auto:1b,conditionMet:1b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~3 ~0 ~3 minecraft:chain_command_block[conditional=true,facing=east]{Command:"execute as @e[tag=dracula-toB] at @s run summon vex ~ ~ ~ {Tags:[dracula-bat,dracula-newB],ActiveEffects:[{Id:14,Duration:999999,ShowParticles:0b}]}",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~4 ~0 ~3 minecraft:chain_command_block[conditional=true,facing=east]{Command:"execute as @e[tag=dracula-newB] at @s run scoreboard players operation @s draculaID = @e[limit=1,distance=..10,tag=dracula-toB] draculaID",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~5 ~0 ~3 minecraft:chain_command_block[conditional=true,facing=east]{Command:"tag @e[tag=dracula-newB] remove dracula-newB",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~6 ~0 ~3 minecraft:chain_command_block[conditional=true,facing=east]{Command:"kill @e[tag=dracula-toB]",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~2 ~0 ~2 minecraft:chain_command_block[conditional=false,facing=south]{Command:"execute as @e[tag=dracula-toB] at @s run summon bat ~ ~ ~ {Tags:[dracula-bat,dracula-newB]}",auto:1b,conditionMet:1b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~3 ~0 ~2 minecraft:chain_command_block[conditional=true,facing=west]{Command:"execute as @e[tag=dracula-toB] at @s run summon bat ~ ~ ~ {Tags:[dracula-bat,dracula-newB]}",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~4 ~0 ~2 minecraft:chain_command_block[conditional=true,facing=west]{Command:"execute as @e[tag=dracula-toB] at @s run summon bat ~ ~ ~ {Tags:[dracula-bat,dracula-newB]}",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~5 ~0 ~2 minecraft:chain_command_block[conditional=true,facing=west]{Command:"execute as @e[tag=dracula-toB] at @s run summon bat ~ ~ ~ {Tags:[dracula-bat,dracula-newB]}",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~6 ~0 ~2 minecraft:chain_command_block[conditional=false,facing=west]{Command:"execute as @e[tag=dracula-toB] at @s run summon bat ~ ~ ~ {Tags:[dracula-bat,dracula-newB]}",auto:1b,conditionMet:1b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~2 ~0 ~1 minecraft:repeating_command_block[conditional=false,facing=east]{Command:"/execute as @e[tag=dracula-main,limit=1,sort=random] at @s unless entity @a[distance=..10] run tag @s add dracula-toB",auto:1b,conditionMet:1b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~3 ~0 ~1 minecraft:chain_command_block[conditional=true,facing=east]{Command:"execute as @e[tag=dracula-toB] at @s run summon bat ~ ~ ~ {Tags:[dracula-bat,dracula-newB]}",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~4 ~0 ~1 minecraft:chain_command_block[conditional=true,facing=east]{Command:"execute as @e[tag=dracula-toB] at @s run summon bat ~ ~ ~ {Tags:[dracula-bat,dracula-newB]}",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~5 ~0 ~1 minecraft:chain_command_block[conditional=true,facing=east]{Command:"execute as @e[tag=dracula-toB] at @s run summon bat ~ ~ ~ {Tags:[dracula-bat,dracula-newB]}",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~6 ~0 ~1 minecraft:chain_command_block[conditional=false,facing=south]{Command:"execute as @e[tag=dracula-toB] at @s run summon bat ~ ~ ~ {Tags:[dracula-bat,dracula-newB]}",auto:1b,conditionMet:1b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~2 ~-1 ~3 minecraft:repeating_command_block[conditional=false,facing=east]{Command:"execute at @e[tag=dracula-spawner] run summon minecraft:husk ~ ~ ~ {CanBreakDoors:1,CustomName:\'[{\\"text\\":\\"Dracula\\"}]\',Silent:1b,Tags:[dracula-main,dracula-new],ArmorItems:[{id:leather_boots,tag:{display:{color:0}},Count:1},{id:leather_leggings,tag:{display:{color:0}},Count:1},{id:leather_chestplate,tag:{display:{color:0}},Count:1},{id:player_head,tag:{SkullOwner:{Id:[I;1254890019,1428577167,-1997459946,1348900419],Properties:{textures:[{Value:\\"e3RleHR1cmVzOntTS0lOOnt1cmw6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGMwNTk4ZjY4YzAyNGFhMTQ2OTgzZTg2OTRjMDBjMGEyZjNmMWVhMWQ3OWIyYjM4MWJhYzc5ZTU4NjhkNjRjYSJ9fX0=\\"}]}},display:{Lore:[\'{\\"text\\":\\"https://namemc.com/skin/6b964cff5caae644\\"}\']}},Count:1}],ArmorDropChances:[0f,0f,0f,0f],DeathLootTable:\\"minecraft:empty\\",CanPickUpLoot:1b,Attributes:[{Name:\\"generic.movement_speed\\",Base:0.3f},{Name:\\"generic.attack_damage\\",Base:10f}]}",auto:1b,conditionMet:1b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~3 ~-1 ~3 minecraft:chain_command_block[conditional=true,facing=east]{Command:"kill @e[tag=dracula-spawner]",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~4 ~-1 ~3 minecraft:chain_command_block[conditional=true,facing=east]{Command:"execute as @e[tag=dracula-new] run scoreboard players operation @s draculaID = .index draculaID",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~5 ~-1 ~3 minecraft:chain_command_block[conditional=true,facing=east]{Command:"scoreboard players add .index draculaID 1",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~6 ~-1 ~3 minecraft:chain_command_block[conditional=true,facing=east]{Command:"tag @e[tag=dracula-new] remove dracula-new",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~2 ~-1 ~2 minecraft:repeating_command_block[conditional=false,facing=east]{Command:\'/execute as @e[type=minecraft:item,nbt={Item:{id:"minecraft:egg"}}] at @s if entity @e[distance=..1,type=item,nbt={Item:{id:"minecraft:black_dye"}}] run tag @s add dracula-spawnegg\',auto:1b,conditionMet:1b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~3 ~-1 ~2 minecraft:chain_command_block[conditional=true,facing=east]{Command:\'execute as @e[tag=dracula-spawnegg] run data modify entity @s Item set value {id:"minecraft:spider_spawn_egg",Count:1b,tag:{EntityTag:{id:armor_stand,Tags:[dracula-spawner]},display:{Name:\\\'[{"text":"Dracula Spawn Egg","italic":false}]\\\'}}}\',auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~4 ~-1 ~2 minecraft:chain_command_block[conditional=true,facing=east]{Command:"execute at @e[tag=dracula-spawnegg] run particle minecraft:squid_ink ~ ~.5 ~ 0 0 0 .01 100",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~5 ~-1 ~2 minecraft:chain_command_block[conditional=true,facing=east]{Command:\'execute at @e[tag=dracula-spawnegg] run kill @e[distance=..1,nbt={Item:{id:"minecraft:black_dye"}},limit=1]\',auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~6 ~-1 ~2 minecraft:chain_command_block[conditional=true,facing=east]{Command:"tag @e[tag=dracula-spawnegg] remove dracula-spawnegg",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~2 ~-1 ~1 minecraft:repeating_command_block[conditional=false,facing=east]{Command:"execute at @a[nbt=!{Health:0.0f}] run tag @e[distance=..7,limit=1,sort=nearest,tag=dracula-bat] add dracula-toD",auto:1b,conditionMet:1b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~3 ~-1 ~1 minecraft:chain_command_block[conditional=true,facing=east]{Command:"execute at @e[tag=dracula-toD] as @e[tag=dracula-bat,tag=!dracula-toD] if score @s draculaID = @e[limit=1,distance=0] draculaID run tp @s @e[limit=1,distance=0]",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~4 ~-1 ~1 minecraft:chain_command_block[conditional=true,facing=east]{Command:"execute at @e[tag=dracula-toD] as @e[tag=dracula-bat,tag=!dracula-toD] if score @s draculaID = @e[limit=1,distance=0] draculaID run kill @s",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~5 ~-1 ~1 minecraft:chain_command_block[conditional=true,facing=east]{Command:"execute at @e[tag=dracula-toD] run summon minecraft:armor_stand ~ ~ ~ {Tags:[dracula-spawner]}",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/setblock ~6 ~-1 ~1 minecraft:chain_command_block[conditional=true,facing=east]{Command:"execute as @e[tag=dracula-toD] run kill @s",auto:1b,conditionMet:0b,powered:0b}'},{id:command_block_minecart, Command: '/scoreboard objectives add draculaID dummy'},{id:command_block_minecart, Command: 'setblock ~ ~1 ~ command_block{Command:"fill ~ ~ ~ ~ ~-3 ~ air",auto:1}'},{id:command_block_minecart, Command: 'kill @e[type=command_block_minecart,distance=..1,tag=!debug]'},]}]}]}</textarea>
+        <button id="copy" class="button-37" role="button" onclick="CopyToClipboard('command')">Copy</button>
+    </div>
+    <div class="credit">
+        <img src="https://i.ibb.co/kyDmFkX/Logo.png" alt="logo" />
+        <h1>&copy;TorchCraft</h1>
+</body>
+
+<!--Script-->
+<script>
+    function CopyToClipboard(id)
+    {
+    var r = document.createRange();
+    r.selectNode(document.getElementById(id));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    document.execCommand('copy');
+    // window.getSelection().removeAllRanges();
+    }
+</script>
+
+<!--Style-->
+<style>
+    body {
+        background-color: white;
+    }
+    .credit img {
+        float: right;
+        width: 25px;
+        height: 25px;
+        background: #555;
+    }
+
+    .credit h1 {
+        text-align: right;
+        position: relative;
+        top: 4px;
+        right: 10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: smaller;
+    }
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+    }
+    .button-37 {
+        background-color: #13aa52;
+        border: 1px solid #13aa52;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        outline: none;
+        outline: 0;
+        padding: 10px 25px;
+        text-align: center;
+        transform: translateY(0);
+        transition: transform 150ms, box-shadow 150ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    .button-37:hover {
+        box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+        transform: translateY(-2px);
+    }
+
+</style>
