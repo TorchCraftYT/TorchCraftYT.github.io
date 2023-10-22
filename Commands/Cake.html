@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+    <title>Cake command - TorchCraft</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/pdtRF3v/Logo.png" type="image/x-icon">
+    <base href="../">
+    <link rel="stylesheet" href="Base.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="/index.html">Home</a>
+        <a class="active" href="/Commands.html">Commands</a>
+        <a href="/Tools.html">Tools</a>
+        <a href="/About.html">About</a>
+    </div>
+    <div class="command area">
+        <h1 style="text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Cake command</h1>
+        <textarea id="command" rows="4" cols="50">summon minecraft:falling_block ~ ~1 ~ {"BlockState":{"Name":"redstone_block"},"Time":1,"Passengers":[{"id":"villager","Health":0,"Passengers":[{"id":"falling_block","Time":1,"BlockState":{"Name":"activator_rail"},"Passengers":[{"id":"command_block_minecart","Command":"gamerule commandBlockOutput false"},{"id":"command_block_minecart","Command":"fill ~1 ~0 ~0 ~7 ~0 ~4 minecraft:white_concrete"},{"id":"command_block_minecart","Command":"setblock ~7 ~0 ~1 minecraft:red_concrete"},{"id":"command_block_minecart","Command":"setblock ~6 ~0 ~4 minecraft:red_concrete"},{"id":"command_block_minecart","Command":"setblock ~5 ~0 ~0 minecraft:red_concrete"},{"id":"command_block_minecart","Command":"setblock ~4 ~0 ~2 minecraft:red_concrete"},{"id":"command_block_minecart","Command":"setblock ~4 ~1 ~2 minecraft:blue_candle[candles=2,lit=true,waterlogged=false]"},{"id":"command_block_minecart","Command":"setblock ~3 ~0 ~4 minecraft:red_concrete"},{"id":"command_block_minecart","Command":"setblock ~2 ~0 ~1 minecraft:red_concrete"},{"id":"command_block_minecart","Command":"setblock ~1 ~0 ~3 minecraft:red_concrete"},{"id":"command_block_minecart","Command":"fill ~1 ~-1 ~0 ~7 ~-1 ~4 minecraft:orange_stained_glass"},{"id":"command_block_minecart","Command":"fill ~1 ~-2 ~0 ~7 ~-2 ~4 minecraft:orange_terracotta"},{"id":"command_block_minecart","Command":"setblock ~0 ~-1 ~1 minecraft:oak_wall_sign[facing=west,waterlogged=false]{back_text:{color:\"black\",has_glowing_text:0b,messages:['{\"text\":\"\"}','{\"text\":\"\"}','{\"text\":\"\"}','{\"text\":\"\"}']},front_text:{color:\"black\",has_glowing_text:0b,messages:['{\"text\":\"\"}','{\"color\":\"dark_blue\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"give @s minecraft:fox_spawn_egg{EntityTag:{id:marker,Tags:[cake-spawner]},display:{Name:\\'[{\\\\\"text\\\\\":\\\\\"Cake Spawn Egg\\\\\",\\\\\"italic\\\\\":false}]\\'}}\"},\"text\":\"[GIVE EGG]\"}','{\"text\":\"\"}','{\"text\":\"\"}']},is_waxed:1b}"},{"id":"command_block_minecart","Command":"setblock ~0 ~-1 ~2 minecraft:oak_wall_sign[facing=west,waterlogged=false]{back_text:{color:\"black\",has_glowing_text:0b,messages:['{\"text\":\"\"}','{\"text\":\"\"}','{\"text\":\"\"}','{\"text\":\"\"}']},front_text:{color:\"black\",has_glowing_text:0b,messages:['{\"text\":\"Cake\"}','{\"text\":\"Command box\"}','{\"text\":\"Made by\"}','{\"text\":\"TorchCraft\"}']},is_waxed:0b}"},{"id":"command_block_minecart","Command":"setblock ~0 ~-1 ~3 minecraft:oak_wall_sign[facing=west,waterlogged=false]{back_text:{color:\"black\",has_glowing_text:0b,messages:['{\"text\":\"\"}','{\"text\":\"\"}','{\"text\":\"\"}','{\"text\":\"\"}']},front_text:{color:\"black\",has_glowing_text:0b,messages:['{\"text\":\"\"}','{\"color\":\"dark_red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"fill ~ ~-1 ~-3 ~7 ~1 ~1 air\"},\"text\":\"[UNINSTALL]\"}','{\"text\":\"\"}','{\"text\":\"\"}']},is_waxed:0b}"},{"id":"command_block_minecart","Command":"setblock ~6 ~-1 ~3 minecraft:repeating_command_block[conditional=false,facing=west]{Command:'/execute as @e[type=item,nbt={Item:{id:\"minecraft:egg\"}}] at @s if entity @e[type=item,nbt={Item:{id:\"minecraft:cake\"}},distance=..1] run tag @s add cake-spawn-egg',CustomName:'{\"text\":\"@\"}',LastExecution:952499L,SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~5 ~-1 ~3 minecraft:chain_command_block[conditional=false,facing=west]{Command:\"execute as @e[tag=cake-spawn-egg] at @s run particle happy_villager ~ ~.5 ~ 0.2 0.2 0.2 5 10\",CustomName:'{\"text\":\"@\"}',LastExecution:952551L,SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~4 ~-1 ~3 minecraft:chain_command_block[conditional=false,facing=west]{Command:'execute as @e[tag=cake-spawn-egg] at @s run kill @e[type=item,nbt={Item:{id:\"minecraft:cake\"}},distance=..1,limit=1]',CustomName:'{\"text\":\"@\"}',LastExecution:952598L,SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~3 ~-1 ~3 minecraft:chain_command_block[conditional=false,facing=north]{Command:'execute as @e[tag=cake-spawn-egg] run data merge entity @s {Item:{id:fox_spawn_egg,tag:{EntityTag:{id:marker,Tags:[cake-spawner]},display:{Name:\"[{\\\\\"text\\\\\":\\\\\"Cake Spawn Egg\\\\\",\\\\\"italic\\\\\":false}]\"}}}}',CustomName:'{\"text\":\"@\"}',LastExecution:952660L,SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~2 ~-1 ~3 minecraft:chain_command_block[conditional=false,facing=south]{Command:\"HAPPY TORCHCRAFT'S 2ND BIRTHDAY\",CustomName:'{\"text\":\"@\"}',SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:0b,conditionMet:0b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~6 ~-1 ~2 minecraft:chain_command_block[conditional=false,facing=north]{Command:\"/execute as @e[tag=cake] at @s on passengers run data modify entity @s Rotation[0] set from entity @e[distance=0,limit=1] Rotation[0]\",CustomName:'{\"text\":\"@\"}',LastExecution:952812L,SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~5 ~-1 ~2 minecraft:chain_command_block[conditional=false,facing=east]{Command:\"/kill @e[type=minecraft:marker,tag=cake-spawner]\",CustomName:'{\"text\":\"@\"}',LastExecution:952866L,LastOutput:'{\"extra\":[{\"color\":\"red\",\"extra\":[{\"translate\":\"argument.entity.notfound.entity\"}],\"text\":\"\"}],\"text\":\"[21:41:47] \"}',SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~4 ~-1 ~2 minecraft:chain_command_block[conditional=false,facing=east]{Command:'execute as @e[type=minecraft:marker,tag=cake-spawner] at @s run summon pig ~ ~ ~ {\"active_effects\":[{\"id\":\"minecraft:invisibility\",\"duration\":999999f,\"show_particles\":false}],\"HandItems\":[{\"id\":\"cake\",\"Count\":1f},{\"id\":\"blue_candle\",\"Count\":1f}],\"HandDropChances\":[1f,1f],\"DeathLootTable\":\"minecraft:empty\",\"CustomName\":\"[{\\\\\"text\\\\\":\\\\\"Cake\\\\\"}]\",\"Tags\":[\"cake\"],\"Passengers\":[{\"id\":\"minecraft:block_display\",\"block_state\":{\"Name\":\"minecraft:cake\",\"Properties\":{\"bites\":\"0f\"}},\"transformation\":[1f,0f,0f,-0.4625f,0f,1f,0f,-0.5562f,0f,0f,1f,-0.499f,0f,0f,0f,1f]},{\"id\":\"minecraft:block_display\",\"block_state\":{\"Name\":\"minecraft:cake\",\"Properties\":{\"bites\":\"0f\"}},\"transformation\":[0.8f,0f,0f,-0.3688f,0f,0.8f,0f,-0.0562f,0f,0f,0.8f,-0.4052f,0f,0f,0f,1f]},{\"id\":\"minecraft:text_display\",\"text\":\"{\\\\\"text\\\\\":\\\\\"╰(*°▽°*)╯\\\\\",\\\\\"color\\\\\":\\\\\"#FFFFFF\\\\\",\\\\\"bold\\\\\":\\\\\"false\\\\\",\\\\\"italic\\\\\":\\\\\"false\\\\\",\\\\\"underlined\\\\\":\\\\\"false\\\\\",\\\\\"strikethrough\\\\\":\\\\\"false\\\\\",\\\\\"font\\\\\":\\\\\"minecraft:uniform\\\\\"}\",\"text_opacity\":255f,\"background\":0f,\"alignment\":\"center\",\"line_width\":210f,\"default_background\":false,\"transformation\":[1f,0f,0f,0.0375f,0f,1f,0f,-0.5562f,0f,0f,1f,0.451f,0f,0f,0f,1f]},{\"id\":\"minecraft:block_display\",\"block_state\":{\"Name\":\"minecraft:blue_concrete\",\"Properties\":{}},\"transformation\":[0.1875f,0f,0f,-0.0875f,0f,0.0625f,0f,0.3438f,0f,0f,0.0625f,-0.0615f,0f,0f,0f,1f]},{\"id\":\"minecraft:block_display\",\"block_state\":{\"Name\":\"minecraft:blue_concrete\",\"Properties\":{}},\"transformation\":[0.1326f,-0.0442f,0f,-0.0325f,0.1326f,0.0442f,0f,0.3638f,0f,0f,0.0625f,-0.0615f,0f,0f,0f,1f]},{\"id\":\"minecraft:block_display\",\"block_state\":{\"Name\":\"minecraft:blue_concrete\",\"Properties\":{}},\"transformation\":[0.1875f,0f,0f,-0.0875f,0f,0.0625f,0f,0.5588f,0f,0f,0.0625f,-0.0615f,0f,0f,0f,1f]},{\"id\":\"minecraft:block_display\",\"block_state\":{\"Name\":\"minecraft:blue_concrete\",\"Properties\":{}},\"transformation\":[0.0625f,0f,0f,-0.0875f,0f,0.0625f,0f,0.4963f,0f,0f,0.0625f,-0.0615f,0f,0f,0f,1f]},{\"id\":\"minecraft:block_display\",\"block_state\":{\"Name\":\"minecraft:blue_concrete\",\"Properties\":{}},\"transformation\":[0.0625f,0f,0f,0.0375f,0f,0.0625f,0f,0.4963f,0f,0f,0.0625f,-0.0615f,0f,0f,0f,1f]},{\"id\":\"minecraft:block_display\",\"block_state\":{\"Name\":\"minecraft:blue_candle\",\"Properties\":{\"candles\":\"1f\",\"lit\":\"true\"}},\"transformation\":[0.5f,0f,0f,-0.2425f,0f,0.1f,0f,0.6138f,0f,0f,0.5f,-0.279f,0f,0f,0f,1f]},{\"id\":\"minecraft:text_display\",\"text\":\"{\\\\\"text\\\\\":\\\\\"*\\\\\",\\\\\"color\\\\\":\\\\\"#FFFFFF\\\\\",\\\\\"bold\\\\\":\\\\\"false\\\\\",\\\\\"italic\\\\\":\\\\\"false\\\\\",\\\\\"underlined\\\\\":\\\\\"false\\\\\",\\\\\"strikethrough\\\\\":\\\\\"false\\\\\",\\\\\"font\\\\\":\\\\\"minecraft:uniform\\\\\"}\",\"text_opacity\":255f,\"background\":0f,\"alignment\":\"center\",\"line_width\":210f,\"default_background\":false,\"transformation\":[-1f,0f,0f,0.0375f,0f,1f,0f,-0.5562f,0f,0f,-1f,-0.4375f,0f,0f,0f,1f]},{\"id\":\"minecraft:block_display\",\"block_state\":{\"Name\":\"minecraft:cake\",\"Properties\":{\"bites\":\"0f\"}},\"transformation\":[0.1f,0f,0f,-0.275f,0f,1f,0f,-0.8687f,0f,0f,0.1f,-0.0615f,0f,0f,0f,1f]},{\"id\":\"minecraft:block_display\",\"block_state\":{\"Name\":\"minecraft:cake\",\"Properties\":{\"bites\":\"0f\"}},\"transformation\":[0.1f,0f,0f,0.225f,0f,1f,0f,-0.8687f,0f,0f,0.1f,-0.0615f,0f,0f,0f,1f]}],\"Silent\":true}',CustomName:'{\"text\":\"@\"}',LastExecution:952921L,SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~3 ~-1 ~2 minecraft:chain_command_block[conditional=false,facing=east]{Command:\"execute as @e[tag=cake-spawn-egg] run tag @s remove cake-spawn-egg\",CustomName:'{\"text\":\"@\"}',LastExecution:952976L,SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~2 ~-1 ~2 minecraft:chain_command_block[conditional=false,facing=south]{Command:\"/execute as @e[tag=cake] unless data entity @s {Motion:[0.0d, -0.0784000015258789d, 0.0d]} at @s rotated ~ 0 run particle minecraft:smoke ^ ^1.6 ^-.5 0 0 0 1 0\",CustomName:'{\"text\":\"@\"}',LastExecution:953024L,SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~6 ~-1 ~1 minecraft:chain_command_block[conditional=false,facing=west]{Command:\"/execute as @e[tag=cake] at @s on passengers run tag @s add cake-body\",CustomName:'{\"text\":\"@\"}',LastExecution:953082L,SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~5 ~-1 ~1 minecraft:chain_command_block[conditional=false,facing=west]{Command:\"/execute as @e[tag=cake-body] run tag @s remove alive\",CustomName:'{\"text\":\"@\"}',LastExecution:953147L,LastOutput:'{\"extra\":[{\"translate\":\"commands.tag.remove.success.single\",\"with\":[\"alive\",{\"insertion\":\"e9720796-1d13-4038-8bca-f95ebca42e8a\",\"hoverEvent\":{\"action\":\"show_entity\",\"contents\":{\"type\":\"minecraft:block_display\",\"id\":\"e9720796-1d13-4038-8bca-f95ebca42e8a\",\"name\":{\"translate\":\"entity.minecraft.block_display\"}}},\"translate\":\"entity.minecraft.block_display\"}]}],\"text\":\"[21:42:01] \"}',SuccessCount:48,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~4 ~-1 ~1 minecraft:chain_command_block[conditional=false,facing=west]{Command:\"/execute as @e[tag=cake] at @s on passengers run tag @s add alive\",CustomName:'{\"text\":\"@\"}',LastExecution:953196L,LastOutput:'{\"extra\":[{\"translate\":\"commands.tag.add.success.single\",\"with\":[\"alive\",{\"insertion\":\"e9720796-1d13-4038-8bca-f95ebca42e8a\",\"hoverEvent\":{\"action\":\"show_entity\",\"contents\":{\"type\":\"minecraft:block_display\",\"id\":\"e9720796-1d13-4038-8bca-f95ebca42e8a\",\"name\":{\"translate\":\"entity.minecraft.block_display\"}}},\"translate\":\"entity.minecraft.block_display\"}]}],\"text\":\"[21:42:03] \"}',SuccessCount:48,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~3 ~-1 ~1 minecraft:chain_command_block[conditional=false,facing=west]{Command:\"/execute as @e[tag=cake-body,tag=!alive] run kill @s\",CustomName:'{\"text\":\"@\"}',LastExecution:953252L,SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~2 ~-1 ~1 minecraft:chain_command_block[conditional=false,facing=south]{Command:\"/execute as @e[tag=cake] if data entity @s {Motion:[0.0d, -0.0784000015258789d, 0.0d]} at @s rotated ~ 0 run particle minecraft:small_flame ^ ^1.6 ^-0.001 0 0 0 1 0\",CustomName:'{\"text\":\"@\"}',LastExecution:953310L,SuccessCount:0,TrackOutput:1b,UpdateLastExecution:1b,auto:1b,conditionMet:1b,powered:0b}"},{"id":"command_block_minecart","Command":"setblock ~ ~1 ~ command_block{Command:\"fill ~ ~ ~ ~ ~-3 ~ air\",auto:1}"},{"id":"command_block_minecart","Command":"kill @e[type=command_block_minecart,distance=..1,tag=!debug]"}]}]}]}</textarea>
+        <button id="copy" class="button-37" role="button" onclick="CopyToClipboard('command')">Copy</button>
+    </div>
+    <div class="credit">
+        <img src="https://i.ibb.co/kyDmFkX/Logo.png" alt="logo" />
+        <h1>&copy;TorchCraft</h1>
+</body>
+
+<!--Script-->
+<script>
+    function CopyToClipboard(id)
+    {
+    var r = document.createRange();
+    r.selectNode(document.getElementById(id));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    document.execCommand('copy');
+    // window.getSelection().removeAllRanges();
+    }
+</script>
+
+<!--Style-->
+<style>
+    body {
+        background-color: white;
+    }
+    .credit img {
+        float: right;
+        width: 25px;
+        height: 25px;
+        background: #555;
+    }
+
+    .credit h1 {
+        text-align: right;
+        position: relative;
+        top: 4px;
+        right: 10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: smaller;
+    }
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+    }
+    .button-37 {
+        background-color: #13aa52;
+        border: 1px solid #13aa52;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        outline: none;
+        outline: 0;
+        padding: 10px 25px;
+        text-align: center;
+        transform: translateY(0);
+        transition: transform 150ms, box-shadow 150ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    .button-37:hover {
+        box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+        transform: translateY(-2px);
+    }
+
+</style>
