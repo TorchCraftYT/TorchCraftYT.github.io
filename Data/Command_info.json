@@ -1,0 +1,86 @@
+[
+    {
+        "title":"Copper Golem (Remake) in Minecraft 1.20.2",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2023/081/17301229-maxresdefault_l.jpg",
+        "youtube":"https://youtu.be/BL0vhkeDBic",
+        "path":"./Commands/Copper_Golem.html"
+    },
+    {
+        "title":"Cake in Minecraft 1.20.2",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2023/973/17260129-thumbnail_l.jpg",
+        "youtube":"https://youtu.be/iQIwwsTTm3o",
+        "path":"./Commands/Cake.html"
+    },
+    {
+        "title":"Werewolf in Minecraft 1.20.2",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2023/787/17247236-werewolf_l.jpg",
+        "youtube":"https://youtu.be/gg88iAtpB94",
+        "path":"./Commands/Werewolf.html"
+    },
+    {
+        "title":"Pengurabadillo in Minecraft 1.20.2",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2023/332/17230538-thumbnail_l.jpg",
+        "youtube":"https://youtu.be/E5c76d3eSvE",
+        "path":"./Commands/Pengurabadillo.html"
+    },
+    {
+        "title":"Penguin in Minecraft 1.20.2",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2023/529/17212513-penguin_l.jpg",
+        "youtube":"https://youtu.be/85lhgIMacmQ",
+        "path":"./Commands/Penguin.html"
+    },
+    {
+        "title":"Armadillo in Minecraft 1.20.2",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2023/286/17208574-armadillo_l.jpg",
+        "youtube":"https://youtu.be/gYHuvtnUAhU",
+        "path":"./Commands/Armadillo.html"
+    },
+    {
+        "title":"Crab in Minecraft 1.20.2",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2023/758/17207044-crab_l.jpg",
+        "youtube":"https://youtu.be/U3lfJcgOe1U",
+        "path":"./Commands/Crab.html"
+    },
+    {
+        "title":"Rudolph the reindeer in Minecraft 1.19",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2022/177/16348327-n_l.jpg",
+        "youtube":"https://youtu.be/AdUoQA91f-8",
+        "path":"./Commands/Reindeer.html"
+    },
+    {
+        "title":"Mob balloon in Minecraft 1.19",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2022/938/16237342-n_l.jpg",
+        "youtube":"https://youtu.be/YSMPCpW_lQk",
+        "path":"./Commands/Mob_balloon.html"
+    },
+    {
+        "title":"Dracula in Minecraft 1.19",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2022/826/16193825-n_l.jpg",
+        "youtube":"https://youtu.be/COW7xbOtoK4",
+        "path":"./Commands/Dracula.html"
+    },
+    {
+        "title":"Camel in Minecraft 1.19",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2022/126/16179909-n_l.jpg",
+        "youtube":"https://youtu.be/LskS6JdoMBk",
+        "path":"./Commands/Camel.html"
+    },
+    {
+        "title":"Rascal in Minecraft 1.19",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2022/655/16166979-n_l.jpg",
+        "youtube":"https://youtu.be/VTgjTGk8iO8",
+        "path":"./Commands/Rascal.html"
+    },
+    {
+        "title":"Sniffer in Minecraft 1.19",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2022/944/16162214-n_l.jpg",
+        "youtube":"https://youtu.be/1wdOd7dp5SI",
+        "path":"./Commands/Sniffer.html"
+    },
+    {
+        "title":"Tuff Golem in Minecraft 1.19",
+        "thumbnail":"https://static.planetminecraft.com/files/image/minecraft/blog/2022/934/16148848-tuffgolem_l.jpg",
+        "youtube":"https://youtu.be/Eqe4SuvRUIc",
+        "path":"./Commands/Tuff Golem.html"
+    }
+]
