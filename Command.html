@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+    <title id="title">TorchCraft</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/pdtRF3v/Logo.png" type="image/x-icon">
+    <base href="../">
+    <link rel="stylesheet" href="Base.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="/index.html">Home</a>
+        <a class="active" href="/Commands.html">Commands</a>
+        <a href="/Tools.html">Tools</a>
+        <a href="/About.html">About</a>
+    </div>
+    <div class="command area">
+        <h1 id="heading" style="text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Command</h1>
+        <textarea id="command" rows="4" cols="50">Loading...</textarea>
+        <button id="copy" class="button-37" role="button" onclick="CopyToClipboard('command')">Copy</button>
+    </div>
+    <div class="credit">
+        <img src="https://i.ibb.co/kyDmFkX/Logo.png" alt="logo" />
+        <h1>&copy;TorchCraft</h1>
+</body>
+
+<!--Script-->
+<script>
+    function CopyToClipboard(id){
+        var r = document.createRange();
+        r.selectNode(document.getElementById(id));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(r);
+        document.execCommand('copy');
+    }
+    async function fetchJSONData() {
+        const commandID = new URLSearchParams(window.location.search).get('id');
+        const response = await fetch('./Data/Commands/'+commandID.toLowerCase()+'.txt');
+        if (!response.ok) return;
+        const data = (await response.text()).split('\n');
+        const commandName = data.shift().trim();
+        const commandValue = data.join('');
+        title.innerText = commandName+' command - TorchCraft';
+        heading.innerHTML = commandName+' command';
+        command.innerText = commandValue;
+    }
+    fetchJSONData()
+</script>
+
+<!--Style-->
+<style>
+    body {
+        background-color: white;
+    }
+    .credit img {
+        float: right;
+        width: 25px;
+        height: 25px;
+        background: #555;
+    }
+
+    .credit h1 {
+        text-align: right;
+        position: relative;
+        top: 4px;
+        right: 10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: smaller;
+    }
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        word-break: break-all;
+    }
+    .button-37 {
+        background-color: #13aa52;
+        border: 1px solid #13aa52;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        outline: none;
+        outline: 0;
+        padding: 10px 25px;
+        text-align: center;
+        transform: translateY(0);
+        transition: transform 150ms, box-shadow 150ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    .button-37:hover {
+        box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+        transform: translateY(-2px);
+    }
+
+</style>
